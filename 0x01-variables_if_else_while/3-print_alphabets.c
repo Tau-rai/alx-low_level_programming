@@ -6,7 +6,6 @@
  *
  * Return: Always 0 (Success)
  */
-
 int main(void)
 {
 	int x;
@@ -16,7 +15,9 @@ int main(void)
 		putchar(tolower(x));
 	}
 	putchar('\n');
-
+	for (x = 'A'; x <= 'Z'; x++)
+	{
+		putchar(x);
+	}
 	return (0);
 }
-
