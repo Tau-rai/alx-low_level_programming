@@ -12,11 +12,11 @@ int main(void)
 
 	for (x = 'A'; x <= 'Z'; x++)
 	{
+		if (tolower(x) == 'e' || tolower(x) == 'q')
+		{
+			continue;
+		}
 		putchar(tolower(x));
-	}
-	for (x = 'A'; x <= 'Z'; x++)
-	{
-		putchar(x);
 	}
 	putchar('\n');
 
