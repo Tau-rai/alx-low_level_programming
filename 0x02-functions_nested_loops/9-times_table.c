@@ -11,9 +11,9 @@ void times_table(void)
 {
 	int t, k;
 
-	for (t = 0; t < 10; t++)
+	for (t = 0; t <= 9 ; t++)
 	{
-		for (k = 0; k < 10; k++)
+		for (k = 0; k <= 9; k++)
 		{
 			if (k == 0)
 			{
@@ -24,7 +24,16 @@ void times_table(void)
 				_putchar(',');
 				_putchar(' ');
 			}
-			printf("%2d", t * k);
+			if ((t * k) < 10)
+			{
+				_putchar(' ');
+				_putchar((t * k) = '0'');
+			}
+			else
+			{
+				_putchar((t * k) / 10 + '0');
+				_putchar((t * k) % 10 + '0');
+			}
 		}
 		_putchar('\n');
 	}
