@@ -1,12 +1,19 @@
-#include <unistd.h>
 #include "main.h"
 
 /**
  * print_alphabet - prints the alphabet in lower case
  *
- * Return: Always 0 (Success)
+ * Return: Nothing
+ *
  */
+
 int main(void)
+{
+	print_alphabet();
+	return (0);
+}
+
+void print_alphabet(void)
 {
 	char alpha = 'a';
 
@@ -16,6 +23,4 @@ int main(void)
 		alpha++;
 	}
 	_putchar('\n');
-
-	return (0);
 }
