@@ -6,8 +6,8 @@
  * Return: Always 0 (Success)
  */
 
-int main(void)
+int _putchar(char c)
 {
-	write(1, "_putchar\n", 9);
+	write(1, &c, 1);
 	return (0);
 }
