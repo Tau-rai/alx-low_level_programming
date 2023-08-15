@@ -15,4 +15,5 @@ int print_last_digit(int num)
 	{
 		_putchar(last_d);
 	}
+	return (0);
 }
