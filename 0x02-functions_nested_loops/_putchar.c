@@ -1,10 +1,13 @@
-#include "main.h"
+#include <unistd.h>
 
-void main(void)
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
+int _putchar(char c)
 {
-	_putchar('_');
-	_putchar('C');
-	_putchar('T');
-	_putchar('\n');
+	write(1, &c, 1);
+	return (0);
 }
-
