@@ -2,17 +2,18 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * print_alphabet - prints the alphabet in lower case
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int i;
+	char alpha = 'a';
 
-	for (i = 'a'; i <= 'z'; i++)
+	while (alpha <= 'z')
 	{
-		_putchar(i);
+		_putchar(alpha);
+		alpha++;
 	}
 	_putchar('\n');
 
