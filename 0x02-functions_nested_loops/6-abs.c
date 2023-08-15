@@ -13,7 +13,7 @@ int _abs(int)
 
 	if (num < 0)
 	{
-		num = -m;
+		num = -num;
 	}
 	return (0);
 }
