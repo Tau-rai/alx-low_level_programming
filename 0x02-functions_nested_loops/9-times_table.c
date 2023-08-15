@@ -14,12 +14,16 @@ void times_table(void)
 	{
 		for (k = 0; k < 10; k++)
 		{
-			_putchar((t * k) + '0');
-				if (k != 9)
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
+			if (k == 0)
+			{
+				_putchar('0');
+			}
+			else
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
+			printf("%2d", t * k);
 		}
 		_putchar('\n');
 	}
