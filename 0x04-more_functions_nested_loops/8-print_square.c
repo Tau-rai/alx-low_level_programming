@@ -7,21 +7,26 @@
  * Return: Always 0.
  */
 
-void print_square(int size);
+void print_square(int size)
 {
 	if (size > 0)
 	{
 		int j;
 
-		for (j = size; j < size; j++)
+		for (j = 0; j < size; ++j)
 		{
-			_putchar('#');
+
+			int k;
+
+			for (k = 0; k < size; ++k)
+			{
+				_putchar('#');
+			}
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 	else
 	{
 		_putchar('\n');
 	}
 }
-
