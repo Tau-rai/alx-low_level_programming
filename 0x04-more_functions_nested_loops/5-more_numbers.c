@@ -1,33 +1,22 @@
 #include "main.h"
-#include <ctype.h>
 
 /**
- * more_numbers - prints the numbers 0 to 14 ten times
+ * more_numbers - prints more numbers
  *
- * Return: Always 0 (Success)
  */
-
 void more_numbers(void)
 {
-	int i;
+	int n, m;
 
-	for (i = 0; i < 10; i++)
+	for (n = 0; n < 10; n++)
 	{
-		int num;
-
-		num = 0;
-		while (num <= 14)
+		for (m = 0; m <= 14; m++)
 		{
-			if (num < 10)
+			if (m > 9)
 			{
-				_putchar((char)num + '0');
+				_putchar((m / 10) + '0');
 			}
-			else
-			{
-				_putchar((char)num / 10 + '0');
-				_putchar((char)num % 10 + '0');
-			}
-			num++;
+			_putchar((m % 10) + '0');
 		}
 		_putchar('\n');
 	}
