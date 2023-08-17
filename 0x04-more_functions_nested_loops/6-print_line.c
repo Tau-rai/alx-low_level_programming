@@ -1,27 +1,15 @@
 #include "main.h"
-#include <ctype.h>
 
 /**
- * print_line - prints a straight line from _s
- * @n: the integer that represents the character to be printed
- *
- * Return: Always 0 (Sucess)
+ * print_line - prints a line
+ * @n: is the number of times the line is printed
  */
-
 void print_line(int n)
 {
-	if (n > 0)
+	for (; n > 0; n--)
 	{
-		int i;
-
-		for (i = n; i < n; i++)
-		{
-			_putchar('#');
-		}
-		_putchar('\n');
+		_putchar('_');
 	}
-	else
-	{
-		_putchar('\n');
-	}
+	_putchar('\n');
 }
+
