@@ -1,5 +1,6 @@
 #include "main.h"
 #include <string.h>
+#include <unistd.h>
 
 /**
  * _puts - prints astring str to stdout
@@ -9,11 +10,12 @@
 
 void _puts(char *str)
 {
+	size_t len = strlen(str);
 	size_t i;
 
-	for (i = 0; i < strlen(str); i++)
+	for (i = 0; i < len; i++)
 	{
-		_putchar(str[i]);
+		write(1, &str[i], 1);
 	}
-	_putchar('\n');
+	write(1, "\n", 1);
 }
