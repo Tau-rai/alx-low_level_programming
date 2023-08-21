@@ -5,7 +5,8 @@
  * _puts - prints astring str to stdout
  * @str: is the string variable
  *
- * Return: Nothing.N */
+ * Return: Nothing.
+ */
 
 void _puts(char *str)
 {
