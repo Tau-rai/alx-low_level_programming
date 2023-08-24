@@ -1,36 +1,25 @@
 #include "main.h"
 #include <string.h>
+#include <ctype.h>
 
 /**
- * leet - encodes a string to 1337
+ * leet - replaces letters with digits
  * @s: pointer to a string
  * Return: Always 0.
  */
+
 char *leet(char *s)
 {
 	int i;
+	char *map = "A4E3O0T7L1";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[i] == 'a' || s[i] == 'A')
+		char *p = strchr(map, toupper(s[i]));
+
+		if (p)
 		{
-			s[i] = 52;
-		}
-		else if (s[i] == 'e' || s[i] == 'E')
-		{
-			s[i] = 51;
-		}
-		else if (s[i] == 'o' || s[i] == 'O')
-		{
-			s[i] = 48;
-		}
-		else if (s[i] == 't' || s[i] == 'T')
-		{
-			s[i] = 55;
-		}
-		else if (s[i] == 'l' || s[i] == 'L')
-		{
-			s[i] = 49;
+			s[i] = *(p + 1);
 		}
 	}
 	return (s);
