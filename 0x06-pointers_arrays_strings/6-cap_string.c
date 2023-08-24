@@ -13,7 +13,7 @@ char *cap_string(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (1 == 0 || str[i - 1] == ' ')
+		if (i == 0 || str[i - 1] == ' ')
 		{
 			str[i] = toupper(str[i]);
 		}
