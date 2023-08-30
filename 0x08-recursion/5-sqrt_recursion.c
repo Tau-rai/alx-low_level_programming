@@ -2,12 +2,12 @@
 #include <math.h>
 
 /**
- * _sqrt_recursion - returns the natural square root of a number
- * sqrt_checker - checks if the number is a sqrt
+ * _sqrt_recursion - the natural square root of a number
  * @n: an integer
  * @i: is an integer
  * Return: Always 0.
 */
+/* sqrt_checker - checks for sqrt */
 int sqrt_checker(int n, int i);
 
 int _sqrt_recursion(int n)
@@ -20,6 +20,13 @@ int _sqrt_recursion(int n)
 		return (n);
 	return (sqrt_checker(n, 1));
 }
+
+/**
+ * sqrt_checker - checks sqrt
+ * @n: an integer
+ * @i: an integer
+ * Return: Always 0.
+ */
 int sqrt_checker(int n, int i)
 {
 	if (i * i == n)

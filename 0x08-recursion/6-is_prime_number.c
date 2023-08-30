@@ -3,17 +3,36 @@
 /**
  * is_prime_number - checks for a prime number
  * @n: an integer
+ * @i: an integer
  * Return: Always 0.
  */
+int prime_check(int n, int i);
+
 int is_prime_number(int n)
 {
-	if (n / n == 1 || n / 1 == n)
-	{
-		return (1);
-		is_prime_number(n);
-	}
-	else
+	if (n <= 1)
 	{
 		return (0);
 	}
+	return (prime_check(n, 2));
+}
+
+/**
+ * prime_check - checks the prime
+ * @n: an integer
+ * @i: an integer
+ *
+ * Return: Always 0.
+ */
+int prime_check(int n, int i)
+{
+	if (i == n)
+	{
+		return (1);
+	}
+	if (n % i == 0)
+	{
+		return (0);
+	}
+	return (prime_check(n, i + 1));
 }
