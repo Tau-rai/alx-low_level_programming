@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
 {
 	int i = 0;
 	int sum = 1;
-	/*sum *= atoi(argv[i]); */
 
 	if (argc == 1)
 	{
