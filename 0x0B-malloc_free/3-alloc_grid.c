@@ -33,10 +33,6 @@ int **alloc_grid(int width, int height)
 
 			return (NULL);
 		}
-		/*for (j = 0; j < width; j++)
-		{
-			arr[k][j] = 0;
-		}*/
 		memset(arr[k], 0, width * sizeof(int));
 	}
 	return (arr);
