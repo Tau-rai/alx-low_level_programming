@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * alloc_grid - prints a 2D array
@@ -9,14 +10,14 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int k, j;
+	int k;
 	int **arr;
 
 	if (width <= 0 || height <= 0)
 	{
 		return (NULL);
 	}
-	arr = malloc(height * sizeof(int));
+	arr = malloc(height * sizeof(int *));
 	if (arr == NULL)
 		return (NULL);
 	for (k = 0; k < height; k++)
@@ -24,7 +25,7 @@ int **alloc_grid(int width, int height)
 		arr[k] = malloc(width * sizeof(int));
 		if (arr[k] == NULL)
 		{
-			while (--k >= 0)
+			for (; k >= 0; k--)
 			{
 				free(arr[k]);
 			}
@@ -32,10 +33,11 @@ int **alloc_grid(int width, int height)
 
 			return (NULL);
 		}
-		for (j = 0; j < width; j++)
+		/*for (j = 0; j < width; j++)
 		{
 			arr[k][j] = 0;
-		}
+		}*/
+		memset(arr[k], 0, width * sizeof(int));
 	}
 	return (arr);
 }
