@@ -3,11 +3,20 @@
 #include <string.h>
 
 /**
- * _strdup - duplicates a string
+ * _strdup - creates an array of chars
  * @str: pointer to a string
  * Return: Always 0.
  */
 char *_strdup(char *str)
 {
-	return (strdup(str));
+	size_t len = strlen(str) + 1;
+	char *n_str = malloc(len);
+
+	if (n_str == NULL)
+	{
+		return (NULL);
+	}
+	memcpy(n_str, str, len);
+
+	return (n_str);
 }
