@@ -10,17 +10,16 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	size_t len = (strlen(s1) + strlen(s2)) + 1;
-	char *s3 = malloc(len * sizeof(char));
+	size_t len1 = strlen(s1);
+	size_t len2 = strlen(s2);
+	char *s3 = malloc((len1 + len2 + 1) * sizeof(char));
 
 	if (s3 == NULL)
 	{
 		return (NULL);
 	}
-	if (s3)
-	{
-		strcpy(s3, s1);
-		strcat(s3, s2);
-	}
+	strcpy(s3, s1);
+	strcat(s3, s2);
+
 	return (s3);
 }
