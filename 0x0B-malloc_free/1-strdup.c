@@ -18,6 +18,8 @@ char *_strdup(char *str)
 	}
 	len = strlen(str) + 1;
 	n_str = malloc(len * sizeof(char));
+	if (n_str == NULL)
+		return (NULL);
 
 	memcpy(n_str, str, len);
 
