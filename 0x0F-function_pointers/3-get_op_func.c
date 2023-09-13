@@ -1,4 +1,5 @@
 #include "3-calc.h"
+#include <stddef.h>
 
 /**
  * get_op_func - gets the right operator for the function
@@ -7,7 +8,7 @@
  */
 int (*get_op_func(char *s))(int, int)
 {
-	int i;
+	int i = 0;
 	op_t ops[] = {
 		{"+", op_add},
 		{"-", op_sub},
@@ -17,13 +18,13 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 
+	s = ops;
 	if (ops[i] == (sizeof(ops) - 1))
 		return (NULL);
 	while (i < sizeof(ops))
 	{
-		s = (*get_op_func(ops[i]);
-		 i++;
+		get_op_func(ops[i]);
+		i++;
 	 }
-
-	 return (s);
+	return (s);
 }

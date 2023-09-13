@@ -1,5 +1,6 @@
 #include "function_pointers.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - entry point
@@ -7,23 +8,34 @@
  * @argv: pointer to an array
  * Return: Always 0.
  */
-int main(int argc, *argv[])
+int main(int argc, char *argv[])
 {
-	int i = 0;
-	int num1 = atoi(argv[1]);
-	int num2 = atoi(argv[3]);
-	char operator = argv[2];
+	int num1;
+	int num2;
+	char operator;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit (98);
 	}
-	if ((argv[2] == "/" || argv[2] == "%") && argv[3] == 0))
+
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
+	operator = argv[2][0];
+
+	if ((operator == "/" || operator == "%") && num2 == 0)
 	{
 		printf("Error\n");
-		exit (99)
+		exit (100);
 	}
-	if ( i < argc)
-
-
+	if (argc == 4)
+	{
+		get_op_func(operator);
+	}
+	else
+	{
+		printf("Error\n");
+		exit (99);
+	}
+}
