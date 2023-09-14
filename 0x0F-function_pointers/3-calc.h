@@ -1,6 +1,6 @@
-#include <stddef.h>
 #ifndef CALC_H
 #define CALC_H
+#include <stddef.h>
 
 /**
  * struct op - struct op
@@ -13,34 +13,11 @@ typedef struct op
 	int (*f)(int a, int b);
 } op_t;
 
-/*_t op_add;
-op_t op_sub;
-op_t op_div;
-op_t op_mul;
-op_t op_mod;*/
-/*typedef struct op_sub
-{
-	char *op_sub;
-	int (*f)(int a, int b);
-} op_s;
-
-typedef struct op_mul
-{
-	char *op_mul;
-	int (*f)(int a, int b);
-} op_m;
-
-typedef struct op_div
-{
-	char *op_div;
-	int (*f)(int a, int b);
-} op_d;
-
-typedef struct op_mod
-{
-	char *op_mod;
-	int (*f)(int a, int b);
-} op_md;*/
+/*op_t add = {"+", op_add};
+op_t sub = {"-", op_sub};
+op_t mul = {"*", op_mul};
+op_t div = {"/", op_div};
+op_t mod = {"%", op_mod};*/
 
 int op_add(int a, int b);
 int op_sub(int a, int b);

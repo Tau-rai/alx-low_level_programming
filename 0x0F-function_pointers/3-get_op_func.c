@@ -1,5 +1,6 @@
 #include "3-calc.h"
 #include <stddef.h>
+#include <string.h>
 
 /**
  * get_op_func - gets the right operator for the function
@@ -18,13 +19,11 @@ int (*get_op_func(char *s))(int, int)
 		{NULL, NULL}
 	};
 
-	s = ops;
-	if (ops[i] == (sizeof(ops) - 1))
-		return (NULL);
-	while (i < sizeof(ops))
+	while (ops[i].op != NULL)
 	{
-		get_op_func(ops[i]);
-		i++;
-	 }
-	return (s);
+		if (strcmp(s, ops[i].op) == 0)
+			return (ops[i].f);
+	}
+
+	return (NULL);
 }

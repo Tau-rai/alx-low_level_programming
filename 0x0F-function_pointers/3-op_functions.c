@@ -14,7 +14,7 @@ int op_add(int a, int b)
 
 /**
  * op_sub - subtracts two ints
- * @a: an int 
+ * @a: an int
  * @b: an int
  * Return: Always 0.
  */
@@ -42,7 +42,7 @@ int op_mul(int a, int b)
  */
 int op_div(int a, int b)
 {
-	        return (a / b);
+	return (a / b);
 }
 
 /**
@@ -53,5 +53,5 @@ int op_div(int a, int b)
  */
 int op_mod(int a, int b)
 {
-	        return (a % b);
+	return (a % b);
 }
