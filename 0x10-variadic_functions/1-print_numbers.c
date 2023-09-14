@@ -28,6 +28,8 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			printf("%s", separator);
 		j++;
 	}
+	if (j != n)
+		return;
 
 	va_end(ap);
 
