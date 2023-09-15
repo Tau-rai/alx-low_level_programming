@@ -3,49 +3,46 @@
 #include <stdio.h>
 
 /**
- * print_all - a function that prints anything
- * @format: string template
+ * print_all - prints anything to stdout
+ * @format: number of arguments in the func
  * Return: Nothing
  */
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	int i;
-	char c;
-	float f;
-	char *s;
-	const char *p = format;
+	int k = 0;
+	char *st, *separator = "";
 
 	va_start(ap, format);
-	while (*p != '\0')
+
+	if (format)
 	{
-		switch (*p)
+		while (format[k])
 		{
-			case 'c':
-				c = va_arg(ap, int);
-				printf("%c", c);
-				break;
-			case 'i':
-				i = va_arg(ap, int);
-				printf("%d", i);
-				break;
-			case 'f':
-				f = va_arg(ap, double);
-				printf("%f", f);
-				break;
-			case 's':
-				s = va_arg(ap, char *);
-				if (s == NULL)
-					printf("(nil)");
-				else
-					printf("%s", s);
-				break;
-			default:
-				break;
+			switch (format[k])
+			{
+				case 'c':
+					printf("%s%c", separator, va_arg(ap, int));
+					break;
+				case 'i':
+					printf("%s%d", separator, va_arg(ap, int));
+					break;
+				case 'f':
+					printf("%s%f", separator, va_arg(ap, double));
+					break;
+				case 's':
+					st = va_arg(ap, char *);
+					if (!st)
+						st = "(nil)";
+					printf("%s%s", separator, st);
+					break;
+				default:
+					k++;
+					continue;
+			}
+			separator = ", ";
+			k++;
 		}
-		p++;
-		if (*p)
-			printf(", ");
 	}
 	printf("\n");
 	va_end(ap);
