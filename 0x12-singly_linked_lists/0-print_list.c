@@ -9,13 +9,20 @@ size_t print_list(const list_t *h)
 {
 	size_t counter = 0;
 	const list_t *current = h;
+	size_t len;
+
+	if (h == NULL)
+		return (-1);
 
 	while (current != NULL)
 	{
 		if (current->str == NULL)
 			printf("[0] (nil)\n");
 		else
-			printf("%s\n", current->str);
+		{
+			len = strlen(current->str);
+			printf("[%lu] %s\n", len, current->str);
+		}
 
 		counter++;
 		current = current->next;
