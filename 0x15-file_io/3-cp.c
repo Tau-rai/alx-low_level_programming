@@ -21,16 +21,21 @@ int main(int argc, char *argv[])
 		print_error_exit("Usage: cp file_from file_to", 97);
 	}
 
-	fd_src = open(file_from, O_RDONLY);
+	fd_src = open(file_from, O_RDONLY | O_CLOEXEC);
 	if (fd_src == -1)
 	{
-		print_error_exit("Error: Can't read from file", 98);
+		/*print_error_exit("Error: Can't read from file", 98);*/
+		dprintf(STDERR_FILENO, "Error: Can't read to file %s\n", file_from);
+		exit(98);
 	}
 
 	fd_dest = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_dest == -1)
 	{
-		print_error_exit("Error: Can't write to file", 99);
+		/*print_error_exit("Error: Can't write to file", 99);*/
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
+		close(fd_src);
+		exit(99);
 	}
 
 	while ((bytes_r = read(fd_src, buffer, BUFF_SIZE)) > 0)
@@ -38,18 +43,34 @@ int main(int argc, char *argv[])
 		bytes_w = write(fd_dest, buffer, bytes_r);
 		if (bytes_w != bytes_r)
 		{
-			print_error_exit("Error: Can't write to file", 99);
+			/*print_error_exit("Error: Can't write to file", 99);*/
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
+			close(fd_src);
+			close(fd_dest);
+			exit(99);
 		}
 	}
 
 	if (bytes_r == -1)
 	{
-		print_error_exit("Error: Can't read from file", 98);
+		/*print_error_exit("Error: Can't read from file", 98);*/
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		close(fd_src);
+		close(fd_dest);
+		exit(98);
 	}
 
-	if (close(fd_src) == -1 || close(fd_dest) == -1)
+	if (close(fd_src) == -1)
 	{
-		print_error_exit("Error: Can't close fd", 100);
+		/*rint_error_exit("Error: Can't close fd", 100);*/
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_src);
+		exit(100);
+	}
+
+	if (close(fd_dest) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_dest);
+		exit(100);
 	}
 
 	return (0);
