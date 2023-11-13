@@ -1,0 +1,1 @@
+This directory contains tasks for dynamic libraries project
