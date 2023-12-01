@@ -18,11 +18,10 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (new_table == NULL)
 		return (NULL);
 	/* allocate memory for the table */
-	new_table->array = (hash_node_t *)malloc(sizeof(hash_node_t *) * size);
+	new_table->array = (hash_node_t **)malloc(sizeof(hash_node_t *) * size);
 
 	if (new_table->array == NULL)
 	{
-		free(new_table);
 		return (NULL);
 	}
 	/* initialize lements of the array*/
