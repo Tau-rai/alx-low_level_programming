@@ -13,15 +13,18 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (size < 1)
 		return (NULL);
 	/* allocate memory for the hash table struct*/
-	new_table = malloc(sizeof(hash_table_t));
+	new_table = (hash_table_t *)malloc(sizeof(hash_table_t));
 
 	if (new_table == NULL)
 		return (NULL);
 	/* allocate memory for the table */
-	new_table->array = malloc(sizeof(hash_node_t));
+	new_table->array = (hash_node_t *)malloc(sizeof(hash_node_t *) * size);
 
 	if (new_table->array == NULL)
+	{
+		free(new_table);
 		return (NULL);
+	}
 	/* initialize lements of the array*/
 	for (k = 0; k < size; k++)
 	{
