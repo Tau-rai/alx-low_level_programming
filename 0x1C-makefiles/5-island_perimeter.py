@@ -13,6 +13,9 @@ def island_perimeter(grid):
     rows, cols = len(grid), len(grid[0])
     perimeter = 0
 
+    if rows > 100 or cols > 100:
+        raise ValueError("Gid width and height must be < 100")
+
     for row in range(rows):
         for col in range(cols):
             if grid[row][col] == 1:
