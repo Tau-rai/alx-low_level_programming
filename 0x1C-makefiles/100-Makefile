@@ -6,18 +6,18 @@ OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) $(OBJ) -o $(NAME)
-
-%.o: %.c m.h
-	@$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(SRC:.c=.o) m.h
+	@$(CC) $(SRC:.c=.o) -o $(NAME)
 
 clean:
 	@/bin/rm -f *~ $(NAME)
 
 oclean:
-	@/bin/rm -f $(OBJ)
+	@$(RM) $(SRC:.c=.o)
 
-fclean: clean oclean
+fclean: clean
+	@$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean oclean fclean re
