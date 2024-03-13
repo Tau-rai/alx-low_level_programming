@@ -14,6 +14,9 @@ int jump_search(int *array, size_t size, int value)
 	size_t prev = 0;
 	size_t low, upper, i;
 
+	if (array == NULL)
+		return (-1);
+
 	/* finding the block where the element is */
 	while (prev < size && array[prev] < value)
 	{
