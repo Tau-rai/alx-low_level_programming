@@ -1,7 +1,6 @@
 #include "search_algos.h"
 #include <math.h>
 
-size_t min(int a, int b);
 /**
  * jump_search - searches for a value in a sorted array of integers
  * @array: pointer to the first element of the array
@@ -13,49 +12,27 @@ int jump_search(int *array, size_t size, int value)
 {
 	size_t step = sqrt(size);
 	size_t prev = 0;
-	size_t low, upper;
+	size_t low, upper, i;
 
 	/* finding the block where the element is */
-	while (array[min(step, size) - 1] < value)
+	while (prev < size && array[prev] < value)
 	{
 		printf("Value checked array[%lu] = [%d]\n", prev, array[prev]);
-		prev = step;
-		step += sqrt(size);
-		if (prev >= size)
-			return (-1);
+		low = prev;
+		prev += step;
 	}
 	/* set the bounds for the block */
-	low = (prev == 0) ? 0 : prev - sqrt(size) + 1;
-	upper = prev;
+	upper = (prev < size) ? prev : size;
 
 	printf("Value found between indexes [%lu] and [%lu]\n", low, upper);
 
 	/* perfoming a linear search for value */
-	while (array[prev] < value)
+	for (i = low; i < upper; i++)
 	{
-		printf("Value checked array[%lu] = [%d]\n", prev, array[prev]);
-		prev++;
-		if (prev == min(step, size))
-			return (-1);
-
+		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
+		if (array[i] == value)
+			return (i);
 	}
-	/* if element if found or search ends */
-	printf("Value checked array[%lu] = [%d]\n", prev, array[prev]);
-	if (array[prev] == value)
-		return (prev);
 
 	return (-1);
-}
-/**
- * min - find the minmun of two integers
- * @a: an integer
- * @b: an integer
- * Return: the min integer
- */
-size_t min(int a, int b)
-{
-	if (b > a)
-		return (a);
-	else
-		return (b);
 }
